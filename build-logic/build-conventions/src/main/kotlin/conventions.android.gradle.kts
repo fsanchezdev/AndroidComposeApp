@@ -12,11 +12,9 @@ plugins {
 }
 
 android {
-    buildToolsVersion = libs.findVersion("android.buildTools").get().toString()
     compileSdk = libs.findVersion("android.compileSdk").get().toString().toInt()
     defaultConfig {
         minSdk = libs.findVersion("android.minSdk").get().toString().toInt()
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments["clearPackageData"] = "true"
     }
     compileOptions {
@@ -59,7 +57,6 @@ kotlin {
 dependencies {
     implementation(libs.findBundle("androidx.compose").get())
     implementation(libs.findLibrary("androidx.activityCompose").get())
-    implementation(libs.findLibrary("core.ktx").get())
     implementation(libs.findLibrary("androidx.hiltNavCompose").get())
     implementation(libs.findLibrary("androidx.lifecycleRuntimeCompose").get())
     implementation(libs.findLibrary("androidx.lifecycleViewModelCompose").get())
@@ -84,4 +81,8 @@ dependencies {
     // androidTestImplementation(libs.findLibrary("kotlin.test.junit").get())
     // androidTestImplementation(libs.findLibrary("kotlinx.coroutinesTest").get())
     // androidTestUtil(libs.findLibrary("androidx.testOrchestrator").get())
+    implementation(libs.findLibrary("arrow.core").get())
+    testImplementation(libs.findLibrary("mockk").get())
+    androidTestImplementation(libs.findLibrary("mockkAndroid").get())
+    androidTestImplementation(libs.findLibrary("mockkAgent").get())
 }

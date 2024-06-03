@@ -5,10 +5,15 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextInput
-import com.fsanchezdev.androidcomposeapp.domainlayer.FailureBo
+import arrow.core.Either
+import com.fsanchezdev.androidcomposeapp.domainlayer.base.DomainLayerContract
+import com.fsanchezdev.androidcomposeapp.domainlayer.model.FailureBo
+import com.fsanchezdev.androidcomposeapp.domainlayer.usecase.GetPlaceholderImageUseCase
 import com.fsanchezdev.androidcomposeapp.presentationlayer.feature.template.composables.FeatureScreen
 import com.fsanchezdev.androidcomposeapp.presentationlayer.feature.template.state.FeatureState
 import com.fsanchezdev.androidcomposeapp.presentationlayer.feature.template.viewmodel.FeatureViewModel
+import io.mockk.coEvery
+import io.mockk.mockk
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
@@ -19,11 +24,16 @@ internal class FeatureScreenUnitTest {
     @get:Rule
     internal val composeTestRule = createComposeRule()
 
+    private lateinit var mockPlaceHolderRepository: DomainLayerContract.Data.PlaceHolderRepository
     private lateinit var viewModel: FeatureViewModel
 
     @Before
     fun setup() {
-        viewModel = FeatureViewModel()
+        mockPlaceHolderRepository = mockk(relaxed = true)
+        coEvery { mockPlaceHolderRepository.getPlaceHolderImage() } returns Either.Right(
+            byteArrayOf()
+        )
+        viewModel = FeatureViewModel(GetPlaceholderImageUseCase(mockPlaceHolderRepository))
     }
 
     @Test
@@ -43,7 +53,6 @@ internal class FeatureScreenUnitTest {
             .performTextInput("Mario")
         composeTestRule.onNodeWithContentDescription("Greet button")
             .performClick()
-
         composeTestRule.onNodeWithContentDescription("Greeting")
             .assertTextEquals("from effect Mario")
     }

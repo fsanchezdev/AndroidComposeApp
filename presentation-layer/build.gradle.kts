@@ -11,7 +11,6 @@ android {
 
     defaultConfig {
         minSdk = 29
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -32,6 +31,10 @@ android {
     kotlinOptions {
         jvmTarget = libs.versions.java.sdk.get()
     }
+    packaging {
+        resources.excludes.add("META-INF/LICENSE.md")
+        resources.excludes.add("META-INF/LICENSE-notice.md")
+    }
 }
 
 hilt {
@@ -40,13 +43,12 @@ hilt {
 
 dependencies {
     implementation(projects.domainLayer)
-    implementation(libs.core.ktx)
     implementation(libs.appcompat)
     // implementation(libs.material)
     testImplementation(libs.junit)
     // androidTestImplementation(libs.androidx.testextjunit)
-    // androidTestImplementation(libs.androidx.testEspressoCore)
     testImplementation(libs.square.turbine)
     implementation(libs.androidx.coreSplashscreen)
     implementation(libs.google.daggerHiltAndroid)
+    implementation(libs.coilCompose)
 }

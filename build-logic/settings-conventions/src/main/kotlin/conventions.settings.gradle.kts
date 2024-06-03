@@ -2,7 +2,7 @@
  * Searches for subprojects' `build.gradle` files and prints their Gradle project path.
  */
 private val discoverSubprojects: () -> Array<String> = {
-    val excludePaths = setOf(
+    val excludePaths = listOf(
         rootDir.path,
         "${rootDir.path}${File.separator}buildSrc",
         "${rootDir.path}${File.separator}build-logic",

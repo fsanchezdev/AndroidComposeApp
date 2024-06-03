@@ -19,8 +19,7 @@ import org.junit.runner.RunWith
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
-@RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
+internal class ExampleInstrumentedTest {
 
     @get:Rule
     internal val rule = createComposeRule()
@@ -34,6 +33,7 @@ class ExampleInstrumentedTest {
 
     @Test
     fun appLaunchesAndLogInButtonIsVisible() {
+        //TODO mirar
         launchActivity<MainActivity>()
         rule.onNodeWithContentDescription("Insert name")
             .performTextInput("Mario")

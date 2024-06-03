@@ -22,9 +22,10 @@ tasks.withType<org.jmailen.gradle.kotlinter.tasks.LintTask> {
 }
 
 dependencies {
-    implementation(libs.findLibrary("kotlinx.coroutines").get())
-    testImplementation(libs.findLibrary("kotlin.test").get())
+    implementation(libs.findLibrary("kotlinx.coroutinesAndroid").get())
     testImplementation(libs.findLibrary("kotlin.test.junit").get())
     testImplementation(libs.findLibrary("kotlinx.coroutinesTest").get())
-    testImplementation(libs.findLibrary("junit").get())
+    implementation(libs.findLibrary("inject").get())
+    implementation(libs.findLibrary("arrow.core").get())
+    testImplementation(libs.findLibrary("mockk").get())
 }

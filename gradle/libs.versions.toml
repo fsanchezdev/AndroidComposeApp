@@ -1,5 +1,4 @@
 [versions]
-android-buildTools = "34.0.0"
 android-compileSdk = "34"
 android-minSdk = "29"
 android-targetSdk = "34"
@@ -16,7 +15,6 @@ androidx-hilt = "1.2.0"
 androidx-lifecycle = "2.8.1"
 androidx-navigation = "2.7.7"
 androidx-test = "1.5.0"
-androidx-testEspresso = "3.5.1"
 androidx-workManager = "2.9.0"
 coil = "2.6.0"
 google-accompanist = "0.34.0"
@@ -47,6 +45,10 @@ junit = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
 appcompat = "1.7.0"
 material = "1.9.0"
+arrow = "1.2.3"
+ktor = "2.3.9"
+mockk = "1.13.10"
+androidxTestExt = "1.1.5"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "plugin-android" }
@@ -97,7 +99,6 @@ androidx-composeUiViewbinding = { module = "androidx.compose.ui:ui-viewbinding" 
 
 #androidx-constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.4"
 androidx-constraintlayoutCompose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintLayoutCommpose" }
-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
 androidx-coreGoogleShortcuts = "androidx.core:core-google-shortcuts:1.1.0"
 androidx-coreSplashscreen = "androidx.core:core-splashscreen:1.0.1"
 androidx-coreTesting = "androidx.arch.core:core-testing:2.2.0"
@@ -119,9 +120,8 @@ androidx-media = "androidx.media:media:1.7.0"
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
 androidx-navigation-testing = { module = "androidx.navigation:navigation-testing", version.ref = "androidx-navigation" }
 androidx-palette = "androidx.palette:palette-ktx:1.0.0"
+#TODO use this on android modules not needed??
 androidx-testCore = { module = "androidx.test:core-ktx", version.ref = "androidx-test" }
-androidx-testEspressoContrib = { module = "androidx.test.espresso:espresso-contrib", version.ref = "androidx-testEspresso" }
-androidx-testEspressoCore = { module = "androidx.test.espresso:espresso-core", version.ref = "androidx-testEspresso" }
 androidx-testExtJunit = { module = "androidx.test.ext:junit", version.ref = "androidx-test-ext-junit" }
 androidx-testExtTruth = { module = "androidx.test.ext:truth", version.ref = "androidx-test" }
 androidx-testMonitor = "androidx.test:monitor:1.6.1"
@@ -134,7 +134,8 @@ androidx-workRuntime = { module = "androidx.work:work-runtime-ktx", version.ref 
 androidx-workTesting = { module = "androidx.work:work-testing", version.ref = "androidx-workManager" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 coilCompose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
-
+#TODO use this on android modules not needed??
+androidx-test-ext = { module = "androidx.test.ext:junit-ktx", version.ref = "androidxTestExt" }
 
 #acompanist nor necesary?
 google-accompanistFlow = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "google-accompanist" }
@@ -144,7 +145,6 @@ google-accompanistPager = { module = "com.google.accompanist:accompanist-pager",
 google-accompanistPagerInd = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "google-accompanist" }
 google-accompanistPermissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "google-accompanist" }
 google-accompanistSystemUi = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "google-accompanist" }
-
 
 google-dagger = { module = "com.google.dagger:dagger", version.ref = "google-dagger" }
 google-daggerCompiler = { module = "com.google.dagger:dagger-compiler", version.ref = "google-dagger" }
@@ -167,7 +167,6 @@ junit = { module = "junit:junit", version.ref = "junit" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
-kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutinesAndroid = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutinesPlay = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutinesTest = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
@@ -204,6 +203,23 @@ square-sqlDelightAndroid = { module = "com.squareup.sqldelight:android-driver", 
 square-sqlDelightCoroutines = { module = "com.squareup.sqldelight:coroutines-extensions", version.ref = "square-sqlDelight" }
 square-sqlDelightJvm = { module = "com.squareup.sqldelight:sqlite-driver", version.ref = "square-sqlDelight" }
 square-turbine = "app.cash.turbine:turbine:1.1.0"
+
+#arrow
+arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
+arrow-fx-coroutines = { module = "io.arrow-kt:arrow-fx-coroutines", version.ref = "arrow" }
+
+#ktor
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
+ktor-client-serialization = { module = "io.ktor:ktor-client-serialization", version.ref = "ktor" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+
+#mockk
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+mockkAndroid = { module = "io.mockk:mockk-android", version.ref = "mockk" }
+mockkAgent = { module = "io.mockk:mockk-agent", version.ref = "mockk" }
 
 #material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 

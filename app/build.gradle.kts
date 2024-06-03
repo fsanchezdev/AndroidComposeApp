@@ -28,13 +28,11 @@ android {
     //         enableV4Signing = true
     //     }
     // }
-    buildToolsVersion = libs.versions.android.buildTools.get()
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig {
         applicationId = libs.versions.applicationId.get()
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments["clearPackageData"] = "true"
     }
     buildTypes {
@@ -66,6 +64,11 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
         useLiveLiterals = true
+    }
+    flavorDimensions += "mode"
+    productFlavors {
+        create("pre")
+        create("prod")
     }
     testOptions {
         execution = "ANDROIDX_TEST_ORCHESTRATOR"
@@ -122,7 +125,6 @@ dependencies {
     implementation(projects.domainLayer)
     implementation(projects.presentationLayer)
     implementation(libs.androidx.activityCompose)
-    implementation(libs.core.ktx)
     implementation(libs.androidx.lifecycleRuntime)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.bundles.androidx.compose)
@@ -136,8 +138,6 @@ dependencies {
 
     // not required in app?
     androidTestImplementation(libs.androidx.composeUiTestJunit4)
-    androidTestImplementation(libs.androidx.testCore)
-    androidTestImplementation(libs.androidx.testEspressoCore)
     androidTestImplementation(libs.androidx.testExtJunit)
     androidTestImplementation(platform(libs.compose.bom))
     // TODO check what is needed to test

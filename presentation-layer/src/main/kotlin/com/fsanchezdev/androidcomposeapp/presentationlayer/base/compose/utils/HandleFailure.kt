@@ -7,7 +7,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
-import com.fsanchezdev.androidcomposeapp.domainlayer.FailureBo
+import com.fsanchezdev.androidcomposeapp.domainlayer.model.FailureBo
 import com.fsanchezdev.androidcomposeapp.presentationlayer.R
 import com.fsanchezdev.androidcomposeapp.presentationlayer.base.compose.composables.AlertDialogError
 import com.fsanchezdev.androidcomposeapp.presentationlayer.base.compose.composables.DialogFullScreen
@@ -15,6 +15,12 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 
+/**
+ * Handle failures
+ *
+ * @param failure
+ * @param onEvent
+ */
 @Composable
 public fun HandleFailure(failure: SharedFlow<FailureBo>, onEvent: () -> Unit) {
     val context = LocalContext.current
@@ -37,13 +43,17 @@ public fun HandleFailure(failure: SharedFlow<FailureBo>, onEvent: () -> Unit) {
                     message = context.getString(R.string.error_input_params)
                     openAlertDialog = true
                 }
-                FailureBo.NoData -> TODO()
-                FailureBo.UnAuthorizedError -> {
+                FailureBo.NoData -> {}
+                is FailureBo.Unauthorized -> {
                     message = context.getString(R.string.unauthorized_error)
                     openAlertDialog = true
                 }
-                FailureBo.ServerError -> {
+                is FailureBo.ServerError -> {
                     message = context.getString(R.string.server_error)
+                    openAlertDialog = true
+                }
+                is FailureBo.Forbidden -> {
+                    message = context.getString(R.string.unauthorized_error)
                     openAlertDialog = true
                 }
                 is FailureBo.Error -> {
@@ -54,7 +64,7 @@ public fun HandleFailure(failure: SharedFlow<FailureBo>, onEvent: () -> Unit) {
                     message = context.getString(failure.resId)
                     openAlertDialog = true
                 }
-                is FailureBo.SpecificFailure<*> -> TODO()
+                is FailureBo.SpecificFailure<*> -> {}
             }
         }.collect()
     }

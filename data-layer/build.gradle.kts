@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("conventions.android")
 }
 
 android {
@@ -9,7 +10,6 @@ android {
 
     defaultConfig {
         minSdk = 29
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -22,6 +22,18 @@ android {
             )
         }
     }
+    flavorDimensions += "mode"
+    productFlavors {
+        create("pre") {
+            buildConfigField("String", "BASE_URL", "\"https://picsum.photos/\"")
+        }
+        create("prod") {
+            buildConfigField("String", "BASE_URL", "\"https://picsum.photos/\"")
+        }
+    }
+    buildFeatures {
+        buildConfig = true
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.toVersion(libs.versions.java.sdk.get())
         targetCompatibility = JavaVersion.toVersion(libs.versions.java.sdk.get())
@@ -33,10 +45,15 @@ android {
 
 dependencies {
     implementation(projects.domainLayer)
-    implementation(libs.core.ktx)
     implementation(libs.appcompat)
     // implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.testExtJunit)
-    // androidTestImplementation(libs.androidx.testEspressoCore)
+    implementation(libs.arrow.core)
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.android)
+    implementation(libs.ktor.client.serialization)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    implementation(libs.ktor.client.logging)
 }

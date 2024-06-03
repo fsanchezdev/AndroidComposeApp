@@ -1,6 +1,7 @@
 package com.fsanchezdev.androidcomposeapp.presentationlayer.feature.template.composables
 
 import android.content.res.Configuration
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,14 +19,14 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.fsanchezdev.androidcomposeapp.domainlayer.FailureBo
+import com.fsanchezdev.androidcomposeapp.domainlayer.model.FailureBo
 import com.fsanchezdev.androidcomposeapp.presentationlayer.R
 import com.fsanchezdev.androidcomposeapp.presentationlayer.base.compose.utils.HandleFailure
 import com.fsanchezdev.androidcomposeapp.presentationlayer.feature.template.state.FeatureEffectEvents
@@ -41,11 +42,7 @@ import kotlinx.coroutines.flow.onEach
 
 @Composable
 public fun FeatureScreen() {
-    val vm = if (LocalInspectionMode.current) {
-        FeatureViewModel()
-    } else {
-        hiltViewModel<FeatureViewModel>()
-    }
+    val vm = hiltViewModel<FeatureViewModel>()
     val state: FeatureState by vm.screenState
 
     FeatureScreen(
@@ -114,8 +111,16 @@ public fun FeatureScreen(
                     contentDescription = "Greeting"
                 }
             )
-
-            // Image(painter = , contentDescription = )
+            /*
+            AsyncImage(
+                model = "https://placehold.co/600x400",
+                contentDescription = null,
+                modifier = Modifier
+                    .height(50.dp)
+                    .fillMaxWidth()
+            )
+             */
+            state.image?.asImageBitmap()?.let { Image(bitmap = it, contentDescription = "") }
         }
 
         HandleFailure(
