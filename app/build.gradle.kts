@@ -11,6 +11,7 @@ plugins {
     id(libs.plugins.kotlinter.get().pluginId)
     id(libs.plugins.dagger.hilt.get().pluginId)
     id(libs.plugins.google.ksp.get().pluginId)
+    id(libs.plugins.compose.compiler.get().pluginId)
 }
 
 android {
@@ -63,10 +64,11 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    /*
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
         useLiveLiterals = true
     }
+     */
     testOptions {
         execution = "ANDROIDX_TEST_ORCHESTRATOR"
         animationsDisabled = true

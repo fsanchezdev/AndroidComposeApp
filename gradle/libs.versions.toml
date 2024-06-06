@@ -11,7 +11,7 @@ nameSpaceDomain = "com.fsanchezdev.androidcomposeapp.domainlayer"    #not used y
 nameSpacePresentation = "com.fsanchezdev.androidcomposeapp.presentationlayer"
 
 androidx-activity = "1.9.0"
-androidx-compose-compiler = "1.5.14"
+#androidx-compose-compiler = "1.5.14"
 androidx-hilt = "1.2.0"
 androidx-lifecycle = "2.8.1"
 androidx-navigation = "2.7.7"
@@ -64,6 +64,7 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "plugin-kotlinter" }
 playPublisher = { id = "com.github.triplet.play", version.ref = "plugin-playPublisher" }
 square-sqldelight = { id = "com.squareup.sqldelight", version.ref = "square-sqlDelight" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin"}
 
 [libraries]
 #androidx
@@ -76,7 +77,8 @@ appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat"
 #compose
 compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-BOM" }
     #used for kotlinCompiler
-androidx-composeCompiler = { module = "androidx.compose.compiler:compiler", version.ref = "androidx-compose-compiler" }
+#androidx-composeCompiler = { module = "androidx.compose.compiler:compiler", version.ref = "androidx-compose-compiler" } <2.0.0
+#compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
 #compose versions managed by bom
 androidx-composeAnimation = { module = "androidx.compose.animation:animation" }

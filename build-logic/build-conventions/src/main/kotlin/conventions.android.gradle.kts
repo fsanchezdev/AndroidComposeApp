@@ -27,9 +27,6 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.findVersion(
-            "androidx.compose.compiler"
-        ).get().toString()
         useLiveLiterals = true
     }
     testOptions {
