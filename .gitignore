@@ -171,3 +171,7 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+
+# kotlin 2.0.0
+.kotlin

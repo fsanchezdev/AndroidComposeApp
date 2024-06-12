@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id(libs.plugins.dagger.hilt.get().pluginId)
     id("conventions.android")
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
