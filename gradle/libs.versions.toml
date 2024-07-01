@@ -13,10 +13,10 @@ nameSpacePresentation = "com.fsanchezdev.androidcomposeapp.presentationlayer"
 androidx-activity = "1.9.0"
 androidx-compose-compiler = "1.5.14"
 androidx-hilt = "1.2.0"
-androidx-lifecycle = "2.8.1"
+androidx-lifecycle = "2.8.2"
 androidx-navigation = "2.7.7"
-androidx-test = "1.5.0"
-androidx-testEspresso = "3.5.1"
+androidx-test = "1.6.1"
+androidx-testEspresso = "3.6.1"
 androidx-workManager = "2.9.0"
 coil = "2.6.0"
 google-accompanist = "0.34.0"
@@ -29,22 +29,22 @@ kotlinx-serialization = "1.6.3"
 plugin-android = "8.4.1"
 plugin-dependencyUpdates = "0.51.0"
 plugin-google-firebase-appDistribution = "5.0.0"
-plugin-google-firebase-crashlytics = "3.0.1"
+plugin-google-firebase-crashlytics = "3.0.2"
 plugin-google-ksp = "1.9.24-1.0.20"
 plugin-google-services = "4.4.2"
-plugin-kotlinter = "4.3.0"
-plugin-playPublisher = "3.9.1"
+plugin-kotlinter = "4.4.0"
+plugin-playPublisher = "3.10.1"
 square-moshi = "1.15.1"
 square-okhttp = "4.12.0"
 square-retrofit = "2.11.0"
 square-sqlDelight = "1.5.5"
-compose-BOM = "2024.05.00"
+compose-BOM = "2024.06.00"
 constraintLayoutCommpose = "1.0.1"
 
 # new
 core-ktx = "1.13.1"
 junit = "4.13.2"
-androidx-test-ext-junit = "1.1.5"
+androidx-test-ext-junit = "1.2.1"
 appcompat = "1.7.0"
 material = "1.9.0"
 
@@ -102,7 +102,7 @@ androidx-coreGoogleShortcuts = "androidx.core:core-google-shortcuts:1.1.0"
 androidx-coreSplashscreen = "androidx.core:core-splashscreen:1.0.1"
 androidx-coreTesting = "androidx.arch.core:core-testing:2.2.0"
 androidx-datastore = "androidx.datastore:datastore:1.1.1"
-androidx-glance-glanceAppwidget = "androidx.glance:glance-appwidget:1.0.0"
+androidx-glance-glanceAppwidget = "androidx.glance:glance-appwidget:1.1.0"
 androidx-hiltCompiler = { module = "androidx.hilt:hilt-compiler", version.ref = "androidx-hilt" }
 androidx-hiltNav = { module = "androidx.hilt:hilt-navigation", version.ref = "androidx-hilt" }
 androidx-hiltNavCompose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "androidx-hilt" }
@@ -124,10 +124,10 @@ androidx-testEspressoContrib = { module = "androidx.test.espresso:espresso-contr
 androidx-testEspressoCore = { module = "androidx.test.espresso:espresso-core", version.ref = "androidx-testEspresso" }
 androidx-testExtJunit = { module = "androidx.test.ext:junit", version.ref = "androidx-test-ext-junit" }
 androidx-testExtTruth = { module = "androidx.test.ext:truth", version.ref = "androidx-test" }
-androidx-testMonitor = "androidx.test:monitor:1.6.1"
-androidx-testOrchestrator = "androidx.test:orchestrator:1.4.2"
+androidx-testMonitor = "androidx.test:monitor:1.7.1"
+androidx-testOrchestrator = "androidx.test:orchestrator:1.5.0"
 androidx-testRules = { module = "androidx.test:rules", version.ref = "androidx-test" }
-androidx-testRunner = "androidx.test:runner:1.5.2"
+androidx-testRunner = "androidx.test:runner:1.6.1"
 androidx-uiautomator = "androidx.test.uiautomator:uiautomator:2.3.0"
 androidx-webkit = "androidx.webkit:webkit:1.11.0"
 androidx-workRuntime = { module = "androidx.work:work-runtime-ktx", version.ref = "androidx-workManager" }
@@ -153,7 +153,7 @@ google-daggerHiltCompiler = { module = "com.google.dagger:hilt-compiler", versio
 google-daggerHiltCore = { module = "com.google.dagger:hilt-core", version.ref = "google-dagger" }
 google-daggerHiltTesting = { module = "com.google.dagger:hilt-android-testing", version.ref = "google-dagger" }
 google-firebase-analytics = { module = "com.google.firebase:firebase-analytics-ktx" }
-google-firebase-bom = "com.google.firebase:firebase-bom:33.1.0"
+google-firebase-bom = "com.google.firebase:firebase-bom:33.1.1"
 google-firebase-config = { module = "com.google.firebase:firebase-config-ktx" }
 google-firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics-ktx" }
 google-firebase-messaging = { module = "com.google.firebase:firebase-messaging-ktx" }
